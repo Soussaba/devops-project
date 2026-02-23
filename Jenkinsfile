@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage ('Clone'){
             steps{
-                git credentialsID: 'githubcredentiials',
+                git credentialsID: 'github-credentials',
                 url: 'https://github.com/Soussaba/DevOpsProject.git' ,
                 branch: 'main'
             }
@@ -26,7 +26,7 @@ pipeline {
     }
 
     post {
-        sucess {
+        success {
             echo 'Pipeline terminé avec succès !'
         }
         failure {
