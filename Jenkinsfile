@@ -4,8 +4,8 @@ pipeline {
     stages {
         stage ('Clone'){
             steps{
-                 git credentialsId: 'github-credentials' ,
-                url: 'https://github.com/Soussaba/DevOpsProject.git' ,
+                 git credentialsI: 'github-credentials' ,
+                url: 'https://github.com/Soussaba/devops-project.git' ,
                 branch: 'main'
             }
         }
