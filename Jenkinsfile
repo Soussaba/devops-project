@@ -12,7 +12,7 @@ pipeline {
 
         stage('Build') {
             steps {
-                bat 'C:\\Users\\Administrateur\\AppData\\Local\\Programs\\Eclipse Adoptium\\jdk-17.0.18.8-hotspot\\bin\\javac" --version'
+                bat '%JAVA_HOME%\\bin\\javac --version'
                 echo 'Build Java OK'
             }
         }
