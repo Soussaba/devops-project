@@ -12,7 +12,7 @@ pipeline {
 
         stage('Build') {
             steps {
-                bat '%JAVA_HOME%\\bin\\javac --version'
+                bat 'javac --version'
                 echo 'Build Java OK'
             }
         }
