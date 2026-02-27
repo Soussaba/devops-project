@@ -19,7 +19,7 @@ pipeline {
 
         stage ("Run"){
             steps {
-                bat 'java Main'
+                bat 'java -cp . Main'
                 echo 'Execution Java OK !'
             }
         }
