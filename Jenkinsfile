@@ -10,14 +10,35 @@ pipeline {
             }
         }
 
-        stage('Build') {
+        stage ('Build'){
             steps {
-                bat 'javac --version'
-                echo 'Build Java OK'
+                bat 'javac Main.java'
+                echo 'Compilation Java OK'
             }
         }
 
-        stage('Test') {
+        stage ("Run"){
+            steps {
+                bat 'java Main'
+                echo 'Execution Java OK !'
+            }
+        }
+
+        stage('Release'){
+            steps {
+                bat 'jar cvf MonApp.jar Main.class'
+                echo 'Package JAR cree !'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                bat 'java -jar MonApp.jar'
+                echo 'Application deployee !'
+            }
+        }
+
+        stage ('Test'){
             steps {
                 echo 'Test à venir...'
             }
