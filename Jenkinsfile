@@ -12,14 +12,19 @@ pipeline {
 
         stage ('Build'){
             steps {
-                bat 'javac Main.java'
-                echo 'Compilation Java OK'
+                bat '''
+                    javac Main.java
+                    echo 'Compilation Java OK
+                    '''
             }
         }
 
         stage ("Run"){
             steps {
-                bat 'cd %WORKSPACE% && java -cp %WORKSPACE% Main'
+                bat '''
+                    dir Main.class
+                    java Main
+                    '''
                 echo 'Execution Java OK !'
             }
         }
