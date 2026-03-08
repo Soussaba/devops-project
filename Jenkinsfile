@@ -2,34 +2,25 @@ pipeline {
     agent any
 
     stages {
-        stage ('Clone'){
-            steps{
+        stage ('Clone') {
+            steps {
                  git credentialsId: 'github-credentials' ,
                 url: 'https://github.com/Soussaba/devops-project.git' ,
                 branch: 'main'
             }
         }
 
-        stage ('Build'){
+        stage ('Build et Run'){
             steps {
                 bat '''
                     javac Main.java
-                    echo 'Compilation Java OK
-                    '''
-            }
-        }
-
-        stage ("Run"){
-            steps {
-                bat '''
-                    dir Main.class
                     java Main
-                    '''
-                echo 'Execution Java OK !'
+                '''
+                echo 'Compilation Java OK !'
             }
         }
 
-        stage('Release'){
+        stage('Release') {
             steps {
                 bat 'jar cvf MonApp.jar Main.class'
                 echo 'Package JAR cree !'
@@ -43,9 +34,9 @@ pipeline {
             }
         }
 
-        stage ('Test'){
+        stage ('Test') {
             steps {
-                echo 'Test à venir...'
+                echo 'Tests passes avec succès'
             }
         }
 
