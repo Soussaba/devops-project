@@ -24,7 +24,7 @@ pipeline {
 
         stage('Release') {
             steps {
-                bat 'jar cvf MonApp.jar Main.class'
+                bat 'jar cvfe MonApp.jar Main Main.class'
                 echo 'Package JAR cree !'
             }
         }
