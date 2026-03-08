@@ -13,10 +13,12 @@ pipeline {
         stage ('Build et Run'){
             steps {
                 bat '''
+                    dir /s Main.java
                     javac Main.java
+                    dir /s Main.class
                     java Main
                 '''
-                echo 'Compilation Java OK !'
+                echo 'Build et execution OK !'
             }
         }
 
